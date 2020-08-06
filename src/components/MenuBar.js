@@ -13,13 +13,14 @@ const MenuBar = (props) => {
 
   */
 
+
   return (
-    <div className="ui four item menu">
-      <a className="item active" id="profile">
+    <div className="ui four item menu" onClick={(e) => props.handleClick(e)}>
+      <a className="item" id="profile">
         <i className="user large icon" id="profile"/>
       </a>
 
-      <a className="item" id="photo">
+      <a className="item active" id="photo">
         <i className="photo large icon" id="photo"/>
       </a>
 

@@ -2,8 +2,24 @@ import React from 'react'
 import MenuBar from '../components/MenuBar.js'
 import { Profile, Photos, Cocktails, Pokemon} from '../components/Pages.js'
 
+const pageMapper = {
+  'profile': <Profile />,
+  'photo': <Photos />,
+  'cocktail': <Cocktails />,
+  'pokemon': <Pokemon />
+}
+
 class MainBox extends React.Component {
 
+  state = {
+    detailsToDisplay: <Profile />,
+  }
+
+  handleClick = (e) => {
+    this.setState({
+      detailsToDisplay: pageMapper[e.target.id]
+    })
+  }
 
   render() {
 
@@ -13,12 +29,10 @@ class MainBox extends React.Component {
 
     */
 
-    const detailsToDisplay = <div>Hi, I'm a div!</div>
-
-    return (
+        return (
       <div>
-        <MenuBar />
-        {detailsToDisplay}
+        <MenuBar handleClick={this.handleClick}/>
+        {this.state.detailsToDisplay}
       </div>
     )
   }
