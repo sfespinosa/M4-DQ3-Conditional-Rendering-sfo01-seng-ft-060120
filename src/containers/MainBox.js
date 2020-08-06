@@ -17,7 +17,6 @@ class MainBox extends React.Component {
   }
 
   handleClick = (e) => {
-    console.log(e.target.className)
     this.setState({
       detailsToDisplay: pageMapper[e.target.id],
       selected: e.target.id
