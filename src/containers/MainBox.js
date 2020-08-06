@@ -13,11 +13,14 @@ class MainBox extends React.Component {
 
   state = {
     detailsToDisplay: <Profile />,
+    selected: 'profile'
   }
 
   handleClick = (e) => {
+    console.log(e.target.className)
     this.setState({
-      detailsToDisplay: pageMapper[e.target.id]
+      detailsToDisplay: pageMapper[e.target.id],
+      selected: e.target.id
     })
   }
 
@@ -31,7 +34,7 @@ class MainBox extends React.Component {
 
         return (
       <div>
-        <MenuBar handleClick={this.handleClick}/>
+        <MenuBar handleClick={this.handleClick} selected={this.state.selected}/>
         {this.state.detailsToDisplay}
       </div>
     )
